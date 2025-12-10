@@ -2,6 +2,7 @@ name: msitef_flutter
 description: Plugin Flutter para integração com M-SiTef (Software Express) - TEF para Android
 version: 1.0.0
 homepage: https://github.com/ConsysOnline/libmSitefFlutter
+publish_to: none  
 
 environment:
   sdk: '>=2.17.0 <4.0.0'
@@ -10,6 +11,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # Your custom dependency
+  msitef_core:
+    git:
+      url: https://github.com/ConsysOnline/msitef_core.git
+      ref: master
 
 dev_dependencies:
   flutter_test:
