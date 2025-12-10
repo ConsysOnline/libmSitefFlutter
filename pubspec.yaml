@@ -1,7 +1,7 @@
 name: msitef_flutter
 description: Plugin Flutter para integração com M-SiTef (Software Express) - TEF para Android
 version: 1.0.0
-homepage: https://github.com/seu-usuario/msitef_flutter
+homepage: https://github.com/ConsysOnline/libmSitefFlutter
 
 environment:
   sdk: '>=2.17.0 <4.0.0'
