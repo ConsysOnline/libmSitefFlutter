@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.consys.msitef_flutter">
+    
+    <!-- Permissão para query de pacotes instalados (Android 11+) -->
+    <queries>
+        <package android:name="br.com.softwareexpress.sitef.msitef" />
+        <intent>
+            <action android:name="br.com.softwareexpress.sitef.msitef.ACTIVITY_CLISITEF" />
+        </intent>
+    </queries>
+    
+</manifest>
