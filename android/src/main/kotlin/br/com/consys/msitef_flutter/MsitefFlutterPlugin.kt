@@ -66,6 +66,8 @@ class MsitefFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plug
             intent.putExtra("CNPJ_CPF", call.argument<String>("cnpjCpf") ?: "")
             intent.putExtra("modalidade", call.argument<String>("modalidade") ?: "0")
             
+            intent.putExtra("tipoPinpad", "ANDROID_USB")
+
             val tipoCartao = call.argument<String>("tipoCartao") ?: ""
             // Argumentos para executar pagamento crédito a vista
             if (tipoCartao == "C") {
