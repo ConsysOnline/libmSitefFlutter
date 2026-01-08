@@ -66,6 +66,20 @@ class MsitefFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plug
             intent.putExtra("CNPJ_CPF", call.argument<String>("cnpjCpf") ?: "")
             intent.putExtra("modalidade", call.argument<String>("modalidade") ?: "0")
             
+            // Argumentos para executar pagamento crédito a vista
+            val tipoCartao = call.argument<String>("tipoCartao") ?: ""
+            if (tipoCartao == "C") {
+                intent.putExtra("numParcelas", "1")
+                intent.putExtra("restricoes", "TransacoesHabilitadas=26")
+            }
+
+            // Argumentos para executar pagamento débito a vista
+            val tipoCartao = call.argument<String>("tipoCartao") ?: ""
+            if (tipoCartao == "D") {
+                intent.putExtra("numParcelas", "1")
+                intent.putExtra("restricoes", "TransacoesHabilitadas=16")
+            }
+
             // Valor (em centavos, formato string)
             val valor = call.argument<String>("valor") ?: "0"
             intent.putExtra("valor", valor)
@@ -86,9 +100,11 @@ class MsitefFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plug
                 intent.putExtra("comExterna", comExterna)
             }
             
-            val restricoes = call.argument<String>("restricoes")
-            if (!restricoes.isNullOrEmpty()) {
-                intent.putExtra("restricoes", restricoes)
+            if (tipoCartao == "") {
+                val restricoes = call.argument<String>("restricoes")
+                if (!restricoes.isNullOrEmpty()) {
+                    intent.putExtra("restricoes", restricoes)
+                }
             }
             
             val isDoubleValidation = call.argument<String>("isDoubleValidation")
@@ -103,7 +119,6 @@ class MsitefFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plug
             
             // Configurações adicionais comuns
             intent.putExtra("isExibeMenu", "1") // Exibe menu quando necessário
-            intent.putExtra("tipoPinpad", "1")
             
             // Verifica se o M-SiTef está instalado
             if (!isMsitefInstalado()) {

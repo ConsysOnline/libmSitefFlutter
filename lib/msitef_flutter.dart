@@ -46,6 +46,7 @@ class MsitefFlutter {
       restricoes: restricoes,
       isDoubleValidation: isDoubleValidation,
       timeout: timeout,
+      tipoCartao: ""
     );
   }
 
@@ -69,7 +70,8 @@ class MsitefFlutter {
       operador: operador,
       numeroCupom: numeroCupom,
       comExterna: comExterna,
-      timeout: timeout,
+      timeout: timeout,      
+      tipoCartao: "D"
     );
   }
 
@@ -98,6 +100,7 @@ class MsitefFlutter {
       comExterna: comExterna,
       restricoes: "numParcelas=$parcelas",
       timeout: timeout,
+      tipoCartao: "C"
     );
   }
 
@@ -123,6 +126,7 @@ class MsitefFlutter {
       comExterna: comExterna,
       restricoes: "transacoesHabilitadas=16", // Restringe a PIX
       timeout: timeout,
+      tipoCartao: ""
     );
   }
 
@@ -147,6 +151,7 @@ class MsitefFlutter {
       numeroCupom: numeroCupom,
       comExterna: comExterna,
       timeout: timeout,
+      tipoCartao: ""
     );
   }
 
@@ -168,6 +173,7 @@ class MsitefFlutter {
       operador: operador,
       comExterna: comExterna,
       timeout: timeout,
+      tipoCartao: ""
     );
   }
 
@@ -189,6 +195,7 @@ class MsitefFlutter {
       operador: operador,
       comExterna: comExterna,
       timeout: timeout,
+      tipoCartao: ""
     );
   }
 
@@ -199,6 +206,7 @@ class MsitefFlutter {
     required String enderecoSitef,
     required String cnpjCpf,
     required int valor,
+    required String tipoCartao,
     String operador = "0001",
     String numeroCupom = "",
     int comExterna = 0,
@@ -219,6 +227,7 @@ class MsitefFlutter {
         'restricoes': restricoes,
         'isDoubleValidation': isDoubleValidation ? "1" : "0",
         'timeout': timeout.toString(),
+        'tipoCartao': tipoCartao
       };
 
       final Map<dynamic, dynamic>? result = await _channel.invokeMethod('executarTransacao', params);
