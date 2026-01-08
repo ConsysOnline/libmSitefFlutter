@@ -103,6 +103,7 @@ class MsitefFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plug
             
             // Configurações adicionais comuns
             intent.putExtra("isExibeMenu", "1") // Exibe menu quando necessário
+            intent.putExtra("tipoPinpad", "1")
             
             // Verifica se o M-SiTef está instalado
             if (!isMsitefInstalado()) {

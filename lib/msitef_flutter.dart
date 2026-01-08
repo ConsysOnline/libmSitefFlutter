@@ -74,11 +74,14 @@ class MsitefFlutter {
   }
 
   /// Realiza uma transação de venda com crédito
+  /// 
+  /// [parcelas] - Número de parcelas (padrão: 1 = à vista)
   static Future<MsitefResponse> vendaCredito({
     required String empresaSitef,
     required String enderecoSitef,
     required String cnpjCpf,
     required int valor,
+    int parcelas = 1,
     String operador = "0001",
     String numeroCupom = "",
     int comExterna = 0,
@@ -93,6 +96,7 @@ class MsitefFlutter {
       operador: operador,
       numeroCupom: numeroCupom,
       comExterna: comExterna,
+      restricoes: "numParcelas=$parcelas",
       timeout: timeout,
     );
   }
