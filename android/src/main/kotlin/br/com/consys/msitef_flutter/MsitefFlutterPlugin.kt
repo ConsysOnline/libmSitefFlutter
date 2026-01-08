@@ -66,18 +66,17 @@ class MsitefFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plug
             intent.putExtra("CNPJ_CPF", call.argument<String>("cnpjCpf") ?: "")
             intent.putExtra("modalidade", call.argument<String>("modalidade") ?: "0")
             
-            // Argumentos para executar pagamento crédito a vista
             val tipoCartao = call.argument<String>("tipoCartao") ?: ""
+            // Argumentos para executar pagamento crédito a vista
             if (tipoCartao == "C") {
                 intent.putExtra("numParcelas", "1")
                 intent.putExtra("restricoes", "TransacoesHabilitadas=26")
             }
 
             // Argumentos para executar pagamento débito a vista
-            val tipoCartao = call.argument<String>("tipoCartao") ?: ""
             if (tipoCartao == "D") {
                 intent.putExtra("numParcelas", "1")
-                intent.putExtra("restricoes", "TransacoesHabilitadas=16")
+                intent.putExtra("restricoes", "TransacoesHabilitadas")
             }
 
             // Valor (em centavos, formato string)
