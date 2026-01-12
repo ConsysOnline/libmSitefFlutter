@@ -78,7 +78,14 @@ class MsitefFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plug
             // Argumentos para executar pagamento débito a vista
             if (tipoCartao == "D") {
                 intent.putExtra("numParcelas", "1")
-                intent.putExtra("restricoes", "TransacoesHabilitadas")
+                intent.putExtra("restricoes", "TransacoesHabilitadas=16")
+            }
+
+            // Argumentos para executar pagamento PIX a vista
+            if (tipoCartao == "P") {
+                intent.putExtra("numParcelas", "1")
+                intent.putExtra("transacoesHabilitadas", "7;8;")
+                intent.putExtra("restricoes", "CarteirasDigitaisHabilitadas=027160110024");
             }
 
             // Valor (em centavos, formato string)

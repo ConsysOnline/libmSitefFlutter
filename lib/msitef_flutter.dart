@@ -124,9 +124,9 @@ class MsitefFlutter {
       operador: operador,
       numeroCupom: numeroCupom,
       comExterna: comExterna,
-      restricoes: "transacoesHabilitadas=16", // Restringe a PIX
+      restricoes: "transacoesHabilitadas=7;8;", // Restringe a PIX
       timeout: timeout,
-      tipoCartao: ""
+      tipoCartao: "P"
     );
   }
 
