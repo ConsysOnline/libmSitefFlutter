@@ -85,7 +85,8 @@ class MsitefFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plug
             if (tipoCartao == "P") {
                 intent.putExtra("numParcelas", "1")
                 intent.putExtra("transacoesHabilitadas", "7;8;")
-                intent.putExtra("restricoes", "CarteirasDigitaisHabilitadas=027160110024");
+                // intent.putExtra("restricoes", "CarteirasDigitaisHabilitadas=027160110024");
+                intent.putExtra("cnpj_automacao", call.argument<String>("cnpjCpf") ?: "");
             }
 
             // Valor (em centavos, formato string)
